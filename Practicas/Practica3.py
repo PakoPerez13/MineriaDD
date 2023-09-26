@@ -17,12 +17,14 @@ def Calculate_Win_Draw_Counts(df: pd.DataFrame) -> pd.DataFrame:
     white_wins = df[df['Result'] == '1-0'].shape[0]
     black_wins = df[df['Result'] == '0-1'].shape[0]
     draws = df[df['Result'] == '1/2-1/2'].shape[0]
+    VT = draws + white_wins + black_wins
     
     # Uso de counts para poder obtener las estadisticas de victorias o tablas/empates
     result_counts = pd.DataFrame({
         'Victorias Blancas': [white_wins],
         'Victorias Negras': [black_wins],
-        'Empates': [draws]
+        'Empates': [draws], 
+        'Victorias Totales': [VT]
     })
     
     return result_counts 
