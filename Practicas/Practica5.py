@@ -19,6 +19,10 @@ df_csvChess = pd.read_csv(csv_path)
 filtro = (df_csvChess['WhiteElo'] >= 1500) & (df_csvChess['WhiteElo'] <= 2000) & (df_csvChess['ECO'] == 'A04')
 datos_filtrados = df_csvChess[filtro]
 
+# Agregar otro filtro para utilizarlo adecuadamente
+
+# Crear un rango de datos para aplicarlo
+
 # Crear el boxplot con los datos filtrados
 datos_filtrados.boxplot('WhiteElo', by='ECO')
 
