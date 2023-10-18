@@ -23,13 +23,13 @@ df_csvChess['Mes'] = df_csvChess['Date'].dt.month
 results_by_month = df_csvChess.groupby('Mes')['Result'].value_counts(normalize=True).unstack()
 
 X = sm.add_constant(results_by_month.index)
-y = results_by_month['1-0']
+y = results_by_month['1-0'] 
 
 model = sm.OLS(y, X).fit()
 
 print(model.summary())
 
-# Datos del Dataset
+# Datos del Dataset  
 x = results_by_month.index
 y_real = results_by_month['1-0']
 
